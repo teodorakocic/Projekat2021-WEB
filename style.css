@@ -1,0 +1,125 @@
+.sto{
+    border: 1px solid black;
+    margin: 25px;
+    flex: 1 1 100px;
+    background-color: silver;
+}
+
+.covidTable {
+    border: 1px solid black;
+    margin: 45px;
+    flex: 1 1 100px;
+    background-color: silver;
+}
+
+.rezSto{
+    border: 1px dotted black;
+    margin: 25px;
+    flex: 1 1 100px;
+    background-color: salmon;
+}
+
+.rezStoCovid {
+    border: 1px dotted black;
+    margin: 45px;
+    flex: 1 1 1010px;
+    background-color: salmon;
+}
+
+.red {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+[class^="pomocnaForma"] {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.kontejner{
+    display: flex;
+    flex-direction: column;
+    border-bottom:  1px solid darkblue;
+    border-top:  1px solid darkblue;
+    border-left:  1px solid darkblue;
+}
+
+.kontejnerForma{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 200px;
+    border: 1px dotted silver;
+}
+
+.porudzbineForma {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 120px;
+    border: 1px dotted darkblue;
+}
+
+.kontPorudzbine {
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+    flex-grow: 1;
+}
+
+.kontStolovi {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-grow: 1;
+}
+
+.dugme {
+    height: 35px;
+    width: 115px;
+}
+
+.rVreme {
+    display: flex;
+    text-align: justify;
+    font-family: serif;
+    font-size: larger;
+    background-color: darkcyan;
+}
+
+.stavke, .cena, .vreme, [class$="Porudzbina"] {
+    display: flex;
+    flex-grow: 1;
+    width: 65px;
+    height: 10px;
+}
+
+.porudzbina {
+    display: flex;
+    border: 1px solid black;
+    background-color: powderblue;
+    width: 20px;
+    height: 15px;  
+}
+
+.dugoCekanje {
+    display: flex;
+    border: 1px solid black;
+    background-color: darkmagenta;
+    width: 20px;
+    height: 15px;
+}
+
+.kratkoCekanje {
+    display: flex;
+    border: 1px solid black;
+    background-color: plum;
+    width: 20px;
+    height: 15px;
+}
+
+
+

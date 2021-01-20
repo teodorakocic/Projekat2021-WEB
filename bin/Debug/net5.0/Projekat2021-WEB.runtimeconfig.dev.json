@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Tea\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Tea\\.nuget\\packages"
+    ]
+  }
+}

@@ -22,7 +22,7 @@
 .rezStoCovid {
     border: 1px dotted black;
     margin: 45px;
-    flex: 1 1 1010px;
+    flex: 1 1 100px;
     background-color: salmon;
 }
 
@@ -68,6 +68,7 @@
     flex-direction: row-reverse;
     align-content: center;
     flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .kontStolovi {

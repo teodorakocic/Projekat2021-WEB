@@ -2,12 +2,13 @@ import {Sto} from "./Sto.js"
 import {Porudzbina} from "./Porudzbina.js"
 
 export class Restoran {
-    constructor(naziv, i, j) {
+    constructor(id, naziv, radnoVremeDo, i, j, kapacitetStola) {
+        this.id = id;           
         this.naziv = naziv;
-        this.radnoVremeDo = "00:00";
+        this.radnoVremeDo = radnoVremeDo;        
         this.i = i;
         this.j = j;
-        this.kapacitetStola = 0;
+        this.kapacitetStola = kapacitetStola;          
         this.stolovi = [];
         this.porudzbine = [];
         this.kontejner = null;
@@ -77,7 +78,7 @@ export class Restoran {
         dugmeUredi.onclick = (ev) => {
             
             const raspored = this.kontejner.querySelector(`input[name='${this.naziv}']:checked`);
-            if (this.kapacitetStola == 0) {
+            if (this.kapacitetStola != 0) {
 
             if (raspored == null)
                 alert("Molimo Vas izaberite režim rada u kojem se trenutno nalazi restoran");
@@ -91,9 +92,9 @@ export class Restoran {
                 this.dodajVreme(this.radnoVremeDo, radnoVremeForma);
             }
             if (raspored.value == 1) {
-                this.kapacitetStola = 8;
+                this.kapacitetStola = this.kapacitetStola;
                 this.nacrtajStolove(this.kontejner);
-                this.radnoVremeDo = "23:30";
+                this.radnoVremeDo = this.radnoVremeDo;
                 this.dodajVreme(this.radnoVremeDo, radnoVremeForma);
             }
             
@@ -176,7 +177,7 @@ export class Restoran {
                 vreme.push(0);
 
             }
-
+            let zarada = 0;
             dugmeDodaj.onclick = (ev) => {
                 const redniBr = this.kontejner.querySelector(".brojPorudzbina").value;
                 const broj = this.kontejner.querySelector(".stavke").value;
@@ -189,6 +190,7 @@ export class Restoran {
                     niz[redniBr] = 1;
                     stavke[redniBr] = broj;
                     cene[redniBr] = ce;
+                    zarada += parseInt(cene[redniBr]);
                     vreme[redniBr] = time;
                     this.porudzbine[redniBr].napisiPorudzbinu(pomocnaForma);
                     }
@@ -235,10 +237,19 @@ export class Restoran {
                     if (niz[deleted] == 1) {
                         this.porudzbine[deleted].napisiPorudzbinu(pomocnaForma2);
                         this.obrisiPorudzbinu(deleted);
-                        niz = niz.splice(deleted, 1);
+                        zarada -= parseInt(cene[deleted]);
+                        niz[deleted] = 0;
                     }
                     else
                         alert("Dati sto nije još uvek ništa poručio!");
+                }
+
+                const dugmeZarada = document.createElement("button");
+                dugmeZarada.className = "dugme";
+                dugmeZarada.innerHTML = "Zarada";
+                porudzbineForma.appendChild(dugmeZarada);
+                dugmeZarada.onclick = (ev) => {
+                    alert("Do ovog trenutka za današnji dan restoran je zaradio " + zarada + " RSD.");
                 }
                 }
             }

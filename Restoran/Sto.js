@@ -30,16 +30,6 @@ export class Sto{
         else
             this.stoContainer.className = "rezStoCovid";
         }
-
-        fetch("http://127.0.0.1:5500/Restoran/IzmeniSto" + this.id, {
-            method: "PUT"
-        }).then(p => {
-            // p.ok znači da je server vratio kod 200 ili OK, to znači da je izmena uspela
-            if (p.ok) {
-                // A ako jeste, upisujemo to u HTML
-             this.rezervisan = rezervacija;
-            }
-        });
     }
 
     deleteReservation(rezervacija, x, y) {

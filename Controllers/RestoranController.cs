@@ -23,7 +23,7 @@ namespace Projekat2021_WEB.Controllers
         [HttpGet]
         public async Task<List<Restoran>> PreuzmiRestorane()
         { 
-            return await Context.Restorani.ToListAsync();
+            return await Context.Restorani.Include(p=> p.Stolovi).Include(p=>p.Porudzbine).ToListAsync();
         }
 
         [Route("UpisiRestoran")]
@@ -46,7 +46,15 @@ namespace Projekat2021_WEB.Controllers
         [HttpDelete]
         public async Task IzbrisiRestoran(int id)
         {
-            var restoran = await Context.Restorani.FindAsync(id);
+          var stol=Context.Stolovi.Where(s=>s.Restoran.ID==id);
+            await stol.ForEachAsync(s=>{
+                Context.Remove(s);
+            });
+            var porudzb=Context.Porudzbine.Where(s=>s.Restoran.ID==id);
+            await porudzb.ForEachAsync(s=>{
+                Context.Remove(s);
+            });
+           var restoran = await Context.Restorani.FindAsync(id);
             Context.Remove(restoran);
             await Context.SaveChangesAsync();
         }
@@ -60,6 +68,57 @@ namespace Projekat2021_WEB.Controllers
             Context.Stolovi.Update(sto);
             await Context.SaveChangesAsync();
         }
+
+        [Route("ObrisiSveStolove")]
+        [HttpPost]
+        public async Task ObrisiSveStolove(){
+            
+            foreach (var p in Context.Stolovi)
+            {
+                Context.Remove(p);
+            }
+            await Context.SaveChangesAsync();
+        }
        
+        [Route("IzmeniPorudzbinu")]
+        [HttpPut]
+        public async Task IzmeniSmenu([FromBody] Porudzbina porudzbina)
+        {
+            Context.Update<Porudzbina>(porudzbina);
+            await Context.SaveChangesAsync();
+        }
+
+        [Route("IzbrisiPorudzbinu")]
+        [HttpDelete]
+        public async Task IzbrisiPorudzbinu(int id)
+        {
+           var porudzbina = await Context.Porudzbine.FindAsync(id);
+            Context.Remove(porudzbina);
+            await Context.SaveChangesAsync();
+        }
+
+        [Route("UpisPorudzbine/{idRestoran}")]
+        [HttpPost]
+        public async Task UpisPorudzbine(int idRestoran,[FromBody] Porudzbina porudzbina)
+        {
+            var restoran=await Context.Restorani.FindAsync(idRestoran);
+            porudzbina.Restoran=restoran;
+            Context.Porudzbine.Add(porudzbina);
+            await Context.SaveChangesAsync();
+        }
+
+        [Route("PreuzmiPorudzbine/{idRestoran}")]
+        [HttpGet]
+        public async Task<List<Porudzbina>> PreuzmiPorudzbine(int idRestoran)
+        {
+            return await Context.Porudzbine.Where(porudzbina=> porudzbina.Restoran.ID==idRestoran).ToListAsync();
+        }
+
+        [Route("PreuzmiStolove/{idRestoran}")]
+        [HttpGet]
+        public async Task<List<Sto>> PreuzmiStolove(int idRestoran)
+        {
+            return await Context.Stolovi.Where(sto => sto.Restoran.ID==idRestoran).ToListAsync();
+        }
     }
 }

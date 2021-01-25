@@ -185,7 +185,38 @@ export class Restoran {
                 const time = this.kontejner.querySelector(".vreme").value;
 
                 if (redniBr != 0 && broj != 0 && ce != 0 && time != 0) {
-                    if (redniBr < this.i*this.j) {
+                    if(redniBr < this.i*this.j){
+                    fetch("https://localhost:5001/Restoran/UpisPorudzbine/" + this.id, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        redniBroj: redniBr,
+                        brojStavki: broj,
+                        cena: ce,
+                        vremeSpremanja: time
+                    })
+                }).then(p => {
+                    if(p.ok){
+                        p.json().then(q => {
+                            this.porudzbine[redniBr] = new Porudzbina(redniBr, broj, ce, time, 1);
+                            niz[redniBr] = 1;
+                            stavke[redniBr] = broj;
+                            cene[redniBr] = ce;
+                            zarada += parseInt(cene[redniBr]);
+                            vreme[redniBr] = time;
+                            this.porudzbine[redniBr].napisiPorudzbinu(pomocnaForma);
+                        });
+                    }
+                    else if(p.status == 406){
+                        alert("Sto sa zadatim rednim brojem ne postoji");
+                    }
+                }).catch (p => {
+                    alert("Molimo Vas popunite sve stavke za unos nove porudzbine!");
+                });
+            }
+                    /*if (redniBr < this.i*this.j) {
                     this.porudzbine[redniBr] = new Porudzbina(redniBr, broj, ce, time, 1);
                     niz[redniBr] = 1;
                     stavke[redniBr] = broj;
@@ -195,7 +226,7 @@ export class Restoran {
                     this.porudzbine[redniBr].napisiPorudzbinu(pomocnaForma);
                     }
                     else
-                        alert("Sto sa zadatim rednim brojem ne postoji");
+                        alert("Sto sa zadatim rednim brojem ne postoji");*/
                 }
                 else
                     alert("Molimo Vas popunite sve stavke za unos nove porudzbine!");

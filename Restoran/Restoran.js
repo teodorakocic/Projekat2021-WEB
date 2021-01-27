@@ -217,6 +217,7 @@ export class Restoran {
                 });
             }
                     /*if (redniBr < this.i*this.j) {
+                    if(niz[redniBr] != 1) {
                     this.porudzbine[redniBr] = new Porudzbina(redniBr, broj, ce, time, 1);
                     niz[redniBr] = 1;
                     stavke[redniBr] = broj;
@@ -224,9 +225,12 @@ export class Restoran {
                     zarada += parseInt(cene[redniBr]);
                     vreme[redniBr] = time;
                     this.porudzbine[redniBr].napisiPorudzbinu(pomocnaForma);
-                    }
+                }
+                else
+                    alert("Sto je već poručio!");
+                    }*/
                     else
-                        alert("Sto sa zadatim rednim brojem ne postoji");*/
+                        alert("Sto sa zadatim rednim brojem ne postoji");
                 }
                 else
                     alert("Molimo Vas popunite sve stavke za unos nove porudzbine!");

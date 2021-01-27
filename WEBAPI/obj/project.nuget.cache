@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GaazPPbI+b3uzjItzN9XTUwLmGwaVh++IlKeaxewviIGH2QMfnAQRDAFeOm6iTr/NHWok824BGzIatlVYrXN9Q==",
+  "dgSpecHash": "Fhs6owGRQKg25nbDmVJrb6lZFza4CA1tJgPBUsSx7mP6m1AEI2YNB/hFAknas2KK/Cbg8f6pieauwIV1umspDA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\Projekat2021-WEB.csproj",
+  "projectFilePath": "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\WEBAPI\\Projekat2021-WEB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tea\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Tea\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.1\\microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",

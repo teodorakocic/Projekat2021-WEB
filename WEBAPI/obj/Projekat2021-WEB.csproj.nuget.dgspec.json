@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\Projekat2021-WEB.csproj": {}
+    "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\WEBAPI\\Projekat2021-WEB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\Projekat2021-WEB.csproj": {
+    "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\WEBAPI\\Projekat2021-WEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\Projekat2021-WEB.csproj",
+        "projectUniqueName": "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\WEBAPI\\Projekat2021-WEB.csproj",
         "projectName": "Projekat2021-WEB",
-        "projectPath": "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\Projekat2021-WEB.csproj",
+        "projectPath": "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\WEBAPI\\Projekat2021-WEB.csproj",
         "packagesPath": "C:\\Users\\Tea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\obj\\",
+        "outputPath": "C:\\Users\\Tea\\Desktop\\Projekat2021-WEB\\WEBAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tea\\AppData\\Roaming\\NuGet\\NuGet.Config",
